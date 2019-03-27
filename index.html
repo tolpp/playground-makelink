@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MakeLink</title>
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+
+    <!-- Mustard UI -->
+    <link rel="stylesheet" href="./css/mustard-ui.min.css">
+
+    <!-- Main -->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">Easy URL To Link Generator</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <section class="section-tertiary">
+            <div class="container">
+                <h1 class="h3">Enter URL Info</h1>
+                <!-- Field Grouping -->
+                <div class="form-control-group">
+                    <div class="form-control">
+                        <input id="input-url" type="text" placeholder="Enter URL Here">
+                    </div>
+
+                    <div class="form-control ">
+                        <button id="btn-add-link" class="button-primary">Add Link</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h1 class="h3">Links: </h1>
+                <div class="row">
+                    <ul id="link-container" style="list-style: none">
+
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="copyright align-center">This is a dummy playground project by Tolga Okur ⛳</p>
+    </footer>
+
+
+    <!-- Javascript -->
+    <script src="./js/vendor/jquery-3.3.1.min.js"></script>
+    <script>
+        var urlCounter = 0
+        $(document).ready(function () {
+
+        })
+
+        $("#btn-add-link").click(function () {
+            urlCounter++;
+            var url = $("#input-url").val()
+            var urlText = `${urlCounter}) ${url}`
+
+            var href = `<a href="${url}" target="_blank">${urlText}</a>`
+            var element = `<li >${href}</li>`
+
+            $("#link-container").prepend(element)
+
+        })
+    </script>
+</body>
+
+</html>
